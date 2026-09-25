@@ -28,7 +28,17 @@ public class DynamicArray {
         return data[index];
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
+
+    public int indexOf(int value){
+        for (int i = 0; i < size; i++) {
+            if (data[i] == value) {
+                return i;
+            }
+        }
+        return -1;
+        }
+
 }
