@@ -34,4 +34,14 @@ public class DynamicArray {
     public int size(){
         return size;
     }
+
+    public int indexOf(int target){
+        for (int i = 0; i < size; i++) {
+            if(data[i] == target){
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
