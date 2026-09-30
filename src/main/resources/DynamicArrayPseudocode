@@ -10,3 +10,19 @@ for each position (i) in array starting at index up to size - 1:
 
 set array[size-1] to blank (0)
 Decrease size by one
+
+Action:     Shift insert into list
+input:      value (value) to be added to list
+            index (index) at which to insert value into data array
+output:     None
+
+If index is not within bounds of data:
+    Throw exception to indicate index is outside data bounds
+
+Ensure capacity for new element
+
+for each position (i) in array starting at size and ending at index:
+    set array[i] to array[i-1]
+
+set array[index] to value
+Increase size by one
