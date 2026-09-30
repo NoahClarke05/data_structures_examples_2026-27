@@ -65,4 +65,19 @@ public class DynamicArray {
             throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
         }
     }
+
+    public void add(int index, int value){
+        validateIndex(index);
+
+        ensureCapacity();
+
+//        for (int i = size; i > index; i--) {
+//            data[i] = data[i-1];
+//        }
+
+        System.arraycopy(data, index, data, index+1, (size-index));
+
+        data[index] = value;
+        size++;
+    }
 }
