@@ -16,5 +16,13 @@ public class DynamicArrayTestBed {
         for (int i = 0; i < myList.size(); i++) {
             System.out.println(myList.get(i));
         }
+
+        int removed = myList.remove(10);
+        System.out.println("Value removed: " + removed);
+
+        for (int i = 0; i < myList.size(); i++) {
+            System.out.println(myList.get(i));
+        }
     }
+
 }

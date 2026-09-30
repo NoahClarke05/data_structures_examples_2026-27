@@ -44,4 +44,25 @@ public class DynamicArray {
 
         return -1;
     }
+
+    public int remove(int index){
+        validateIndex(index);
+
+        int removed = data[index];
+
+        for (int i = index; i < size-1; i++) {
+            data[i] = data[i+1];
+        }
+
+        data[size-1] = 0;
+        size--;
+
+        return removed;
+    }
+
+    private void validateIndex(int index){
+        if(index < 0 | index >= size){
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
+        }
+    }
 }
