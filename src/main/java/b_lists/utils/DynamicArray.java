@@ -6,10 +6,10 @@ public class DynamicArray {
     private int [] data = new int[10];
 
     private void ensureCapacity(){
-        if (size == data.length) {
+        if(size == data.length){
             int [] temp = new int[data.length*EXPANSION_MULTIPLIER];
 
-            for (int i = 0; i < data.length; i++){
+            for (int i = 0; i < data.length; i++) {
                 temp[i] = data[i];
             }
 
@@ -19,26 +19,65 @@ public class DynamicArray {
 
     public void add(int value){
         ensureCapacity();
+
         data[size] = value;
         size++;
-
     }
 
     public int get(int index){
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of array");
+        }
         return data[index];
     }
 
-    public int size() {
+    public int size(){
         return size;
     }
 
-    public int indexOf(int value){
+    public int indexOf(int target){
         for (int i = 0; i < size; i++) {
-            if (data[i] == value) {
+            if(data[i] == target){
                 return i;
             }
         }
+
         return -1;
+    }
+
+    public int remove(int index){
+        validateIndex(index);
+
+        int removed = data[index];
+
+        for (int i = index; i < size-1; i++) {
+            data[i] = data[i+1];
         }
 
+        data[size-1] = 0;
+        size--;
+
+        return removed;
+    }
+
+    private void validateIndex(int index){
+        if(index < 0 | index >= size){
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
+        }
+    }
+
+    public void add(int index, int value){
+        validateIndex(index);
+
+        ensureCapacity();
+
+//        for (int i = size; i > index; i--) {
+//            data[i] = data[i-1];
+//        }
+
+        System.arraycopy(data, index, data, index+1, (size-index));
+
+        data[index] = value;
+        size++;
+    }
 }
