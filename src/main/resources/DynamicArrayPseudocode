@@ -26,3 +26,15 @@ for each position (i) in array starting at size and ending at index:
 
 set array[index] to value
 Increase size by one
+
+Action: return new DynamicArray containing all elements between startindex and endindex (exclusive)
+Input: startindex (index) - the starting index of the range
+       endindex (index) - the ending index of the range
+Output: a new DynamicArray containing the elements in the specified range
+
+Create a new DynamicArray
+
+for each position (i) in array starting at startindex + 1 and ending at endindex - 1:
+    add(data[i]) to the new DynamicArray
+
+return new DynamicArray

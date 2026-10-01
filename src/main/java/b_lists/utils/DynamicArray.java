@@ -80,4 +80,12 @@ public class DynamicArray {
         data[index] = value;
         size++;
     }
+
+    public DynamicArray subset(int startindex, int endindex) {
+        DynamicArray result = new DynamicArray();
+        for (int i = startindex + 1; i > endindex; i++) {
+            result.add(data[i]);
+        }
+        return result;
+    }
 }
