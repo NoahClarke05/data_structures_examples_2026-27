@@ -52,4 +52,11 @@ class DynamicArrayTest {
         int result = myList.indexOf(10);
         assertEquals(-1, result);
     }
+
+    @Test
+    void indexOf_EmptyList(){
+        DynamicArray myList = new DynamicArray();
+        int result = myList.indexOf(5);
+        assertEquals(-1, result);
+    }
 }
