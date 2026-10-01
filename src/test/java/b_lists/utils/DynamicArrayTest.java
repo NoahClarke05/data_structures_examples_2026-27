@@ -26,4 +26,15 @@ class DynamicArrayTest {
                 }, "Incorrect (or no) exception thrown"
         );
     }
+
+    @Test
+    void get_AccessAfterList(){
+        DynamicArray myList = new DynamicArray();
+        myList.add(5);
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> {
+                    myList.get(myList.size());
+                }, "Incorrect (or no) exception thrown"
+        );
+    }
 }
