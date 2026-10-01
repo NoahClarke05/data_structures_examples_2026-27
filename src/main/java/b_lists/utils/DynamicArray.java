@@ -88,4 +88,13 @@ public class DynamicArray {
         }
         return result;
     }
+
+    public int lastIndexOf(int target) {
+        for (int i = data.length - 1; i >= 0; i--) {
+            if(data[i] == target){
+                return i;
+            }
+        }
+        return -1;
+    }
 }

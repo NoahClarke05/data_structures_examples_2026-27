@@ -34,6 +34,7 @@ public class DynamicArrayTestBed {
 
         System.out.println("----------------------------------");
         System.out.println(myList.subset(2, 5));
+        System.out.println(myList.lastIndexOf(50));
     }
 
 }

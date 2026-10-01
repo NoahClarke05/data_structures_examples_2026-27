@@ -38,3 +38,13 @@ for each position (i) in array starting at startindex + 1 and ending at endindex
     add(data[i]) to the new DynamicArray
 
 return new DynamicArray
+
+Action: returns the last occurence of the supplied value
+Input: target (int) - the value to search for
+Output: the index of the last occurrence of the value, or -1 if not found
+
+for each position (i) in array starting at size - 1 and ending at 0:
+    if array[i] == target:
+        return i
+
+return -1
