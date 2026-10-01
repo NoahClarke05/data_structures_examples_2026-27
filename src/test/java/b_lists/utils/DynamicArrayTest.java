@@ -37,4 +37,12 @@ class DynamicArrayTest {
                 }, "Incorrect (or no) exception thrown"
         );
     }
+
+    @Test
+    void indexOf(){
+        DynamicArray myList = new DynamicArray();
+        myList.add(5);
+        int result = myList.indexOf(5);
+        assertEquals(0, result);
+    }
 }
