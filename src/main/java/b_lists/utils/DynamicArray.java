@@ -82,8 +82,15 @@ public class DynamicArray {
     }
 
     public DynamicArray subset(int startindex, int endindex) {
+        validateIndex(startindex);
+        validateIndex(endindex - 1);
+
+        if (startindex >= endindex) {
+            throw new IllegalArgumentException("Start index must be less than end index");
+        }
+
         DynamicArray result = new DynamicArray();
-        for (int i = startindex + 1; i > endindex; i++) {
+        for (int i = startindex; i < endindex; i++) {
             result.add(data[i]);
         }
         return result;
