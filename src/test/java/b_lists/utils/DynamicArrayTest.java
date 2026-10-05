@@ -46,6 +46,7 @@ class DynamicArrayTest {
         assertEquals(0, result);
     }
 
+    @Test
     void indexOf_AbsentValue(){
         DynamicArray myList = new DynamicArray();
         myList.add(5);
@@ -58,5 +59,14 @@ class DynamicArrayTest {
         DynamicArray myList = new DynamicArray();
         int result = myList.indexOf(5);
         assertEquals(-1, result);
+    }
+
+    @Test
+    void indexOf_secondValue(){
+        DynamicArray myList = new DynamicArray();
+        myList.add(5);
+        myList.add(5);
+        int result = myList.indexOf(5);
+        assertEquals(0, result);
     }
 }
