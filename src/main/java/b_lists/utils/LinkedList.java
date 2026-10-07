@@ -35,11 +35,7 @@ public class LinkedList {
     }
 
     public boolean isEmpty(){
-        if (size == 0){
-            return true;
-        }else {
-            return false;
-        }
+        return first == null;
     }
 
     public String get(int index){
