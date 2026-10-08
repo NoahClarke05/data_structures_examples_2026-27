@@ -43,13 +43,35 @@ public class LinkedList {
             throw new IndexOutOfBoundsException("Index: " + index + "is out of bounds");
         }
         Node current = first;
-        for (int i = 0; i < size; i++) {
-            if (i == index){
-                return current.data;
-            }
+        for (int i = 0; i < index; i++) {
             current = current.next;
         }
-        return null;
+        return current.data;
     }
 
+    public void add(String element, int index){
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + "is out of bounds");
+        }
+        Node newNode = new Node(element);
+        if(index==0){
+            if (first != null){
+                newNode.next = first;
+            }
+            first = newNode;
+        }else {
+
+            Node prev = null;
+            Node current = first;
+
+            for (int i = 0; i < index; i++) {
+                prev = current;
+                current = current.next;
+            }
+
+            newNode.next = current;
+            prev.next = newNode;
+        }
+        size++;
+    }
 }
