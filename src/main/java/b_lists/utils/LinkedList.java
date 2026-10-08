@@ -2,6 +2,7 @@ package b_lists.utils;
 
 public class LinkedList {
     private Node first;
+    private Node last;
     private int size;
 
     private static class Node{
@@ -14,18 +15,15 @@ public class LinkedList {
         }
     }
 
+    //add to the end
     public void add(String element){
         Node newNode = new Node(element);
-        if(size == 0){
+        if(isEmpty()){
             first = newNode;
+            last = newNode;
         }else {
-
-            Node current = first;
-
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
+            last.next = newNode;
+            last = newNode;
         }
         size++;
     }
@@ -49,6 +47,7 @@ public class LinkedList {
         return current.data;
     }
 
+    //add in the middle
     public void add(String element, int index){
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + "is out of bounds");
@@ -73,5 +72,21 @@ public class LinkedList {
             prev.next = newNode;
         }
         size++;
+    }
+
+    public void remove(String element, int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + "is out of bounds");
+        }
+        Node prev = null;
+        Node current = first;
+
+        for (int i = 0; i < index; i++) {
+            prev = current;
+            current = current.next;
+        }
+
+        prev.next = current.next;
+        size--;
     }
 }
