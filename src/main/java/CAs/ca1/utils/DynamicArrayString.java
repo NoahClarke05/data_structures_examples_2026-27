@@ -47,4 +47,10 @@ public class DynamicArrayString {
         data[size] = value;
         size++;
     }
+
+    private void validateIndex(int index){
+        if(index < 0 | index >= size){
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
+        }
+    }
 }
