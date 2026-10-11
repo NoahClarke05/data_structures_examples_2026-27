@@ -53,4 +53,18 @@ public class DynamicArrayString {
             throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
         }
     }
+
+    public void add(int index, String value){
+        if (value == null) {
+            throw new IllegalArgumentException("Value cannot be null");
+        }
+        validateIndex(index);
+
+        ensureCapacity();
+
+        System.arraycopy(data, index, data, index+1, (size-index));
+
+        data[index] = value;
+        size++;
+    }
 }
