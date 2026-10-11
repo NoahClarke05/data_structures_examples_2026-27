@@ -16,4 +16,9 @@ public class DynamicArrayString {
             data = temp;
         }
     }
+
+    public int size(){
+        return size;
+    }
+
 }
