@@ -37,4 +37,14 @@ public class DynamicArrayString {
 
         return -1;
     }
+
+    public void add(String value){
+        if (value == null) {
+            throw new IllegalArgumentException("Value cannot be null");
+        }
+        ensureCapacity();
+
+        data[size] = value;
+        size++;
+    }
 }
