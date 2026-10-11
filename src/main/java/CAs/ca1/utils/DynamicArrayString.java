@@ -27,4 +27,14 @@ public class DynamicArrayString {
         }
         return data[index];
     }
+
+    public int indexOf(String target){
+        for (int i = 0; i < size; i++) {
+            if(data[i].equals(target)){
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
