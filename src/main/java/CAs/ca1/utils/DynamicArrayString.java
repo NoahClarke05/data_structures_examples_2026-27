@@ -80,4 +80,10 @@ public class DynamicArrayString {
 
         return prev_value;
     }
+
+    public void remove(int index){
+        validateIndex(index);
+        System.arraycopy(data, index+1, data, index, (size-index-1));
+        size--;
+    }
 }
