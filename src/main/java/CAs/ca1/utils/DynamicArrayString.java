@@ -86,4 +86,16 @@ public class DynamicArrayString {
         System.arraycopy(data, index+1, data, index, (size-index-1));
         size--;
     }
+
+    public int removeAll(String value){
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(value)) {
+                remove(i);
+                i--;
+                count++;
+            }
+        }
+        return count;
+    }
 }
