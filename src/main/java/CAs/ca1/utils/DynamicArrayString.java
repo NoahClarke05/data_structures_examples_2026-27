@@ -107,14 +107,24 @@ public class DynamicArrayString {
     }
     
     public String[] deduplicate(){
+        int size = 0;
         String [] dedup = new String[10];
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size ; j++) {
-                if (data[i].equals(data[j]) && i != j) {
-                    // Do nothing, this is a duplicate
-                }else{
-                    dedup[i] = data[i];
+
+        for (int i = 0; i < this.size; i++) {
+            String value = this.get(i);
+
+            boolean seen = false;
+
+            for (int j = 0; j < size; j++) {
+                if (dedup[j].equals(value)) {
+                    seen = true;
+                    break;
                 }
+            }
+
+            if (!seen) {
+                dedup[size] = value;
+                size++;
             }
         }
         return dedup;
