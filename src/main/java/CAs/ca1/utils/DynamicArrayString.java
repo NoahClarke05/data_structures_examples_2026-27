@@ -67,4 +67,17 @@ public class DynamicArrayString {
         data[index] = value;
         size++;
     }
+
+    public String set(int index, String value){
+        if (value == null) {
+            throw new IllegalArgumentException("Value cannot be null");
+        }
+        validateIndex(index);
+
+        String prev_value = data[index];
+
+        data[index] = value;
+
+        return prev_value;
+    }
 }
