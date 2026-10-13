@@ -119,4 +119,13 @@ public class DynamicArrayString {
         }
         return dedup;
     }
+
+    public void join(DynamicArrayString list){
+        if (list == null) {
+            throw new IllegalArgumentException("List cannot be null");
+        }
+        for (int i = 0; i < list.size(); i++) {
+            add(list.get(i));
+        }
+    }
 }
