@@ -105,4 +105,18 @@ public class DynamicArrayString {
         }
         size = 0;
     }
+    
+    public String[] deduplicate(){
+        String [] dedup = new String[10];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size ; j++) {
+                if (data[i].equals(data[j]) && i != j) {
+                    // Do nothing, this is a duplicate
+                }else{
+                    dedup[i] = data[i];
+                }
+            }
+        }
+        return dedup;
+    }
 }
