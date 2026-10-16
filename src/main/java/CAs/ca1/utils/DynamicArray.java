@@ -30,7 +30,7 @@ public class DynamicArray {
 
     public int indexOf(String target){
         for (int i = 0; i < size; i++) {
-            if(data[i].equals(target)){
+            if(data[i].equalsIgnoreCase(target)){
                 return i;
             }
         }
