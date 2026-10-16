@@ -81,10 +81,12 @@ public class DynamicArray {
         return prev_value;
     }
 
-    public void remove(int index){
+    public String remove(int index){
         validateIndex(index);
+        String removedValue = data[index];
         System.arraycopy(data, index+1, data, index, (size-index-1));
         size--;
+        return removedValue;
     }
 
     public int removeAll(String value){
