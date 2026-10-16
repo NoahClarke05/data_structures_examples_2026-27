@@ -54,11 +54,18 @@ public class DynamicArray {
         }
     }
 
+    private void validateInsertIndex(int index){
+        //allows insertion into empty list
+        if (index < 0 || index > size){
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
+        }
+    }
+
     public void add(int index, String value){
         if (value == null) {
             throw new IllegalArgumentException("Value cannot be null");
         }
-        validateIndex(index);
+        validateInsertIndex(index);
 
         ensureCapacity();
 
