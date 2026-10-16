@@ -1,6 +1,6 @@
 package CAs.ca1.utils;
 
-public class DynamicArrayString {
+public class DynamicArray {
     private static final int EXPANSION_MULTIPLIER = 2;
     private int size = 0;
     private String [] data = new String[10];
@@ -130,7 +130,7 @@ public class DynamicArrayString {
         return dedup;
     }
 
-    public void join(DynamicArrayString list){
+    public void join(DynamicArray list){
         if (list == null) {
             throw new IllegalArgumentException("List cannot be null");
         }
