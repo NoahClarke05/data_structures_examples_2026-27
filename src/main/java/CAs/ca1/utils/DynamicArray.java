@@ -62,6 +62,10 @@ public class DynamicArray {
     }
 
     public void add(String value){
+        /**
+         * This method adds the given value to the end of the list
+         * @param String - The value to be added
+         */
         if (value == null) {
             throw new IllegalArgumentException("Value cannot be null");
         }
