@@ -101,6 +101,12 @@ public class DynamicArray {
     }
 
     public void add(int index, String value){
+        /**
+         * This method adds the given value into a specific index position
+         * @param int index - The index position you want to insert the value at
+         * @param String Value - The value you want to add
+         * @throws IllegalArgumentException - If value is null
+         */
         if (value == null) {
             throw new IllegalArgumentException("Value cannot be null");
         }
