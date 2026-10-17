@@ -210,6 +210,11 @@ public class DynamicArray {
     }
 
     public void join(DynamicArray list){
+        /**
+         * This method joins the data array with another DynamicArray
+         * @param DynamicArray list - The new array to join with data
+         * @throws IllegalArgumentException - If list is null
+         */
         if (list == null) {
             throw new IllegalArgumentException("List cannot be null");
         }
