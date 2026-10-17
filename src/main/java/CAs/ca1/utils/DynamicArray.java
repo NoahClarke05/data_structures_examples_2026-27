@@ -27,6 +27,10 @@ public class DynamicArray {
     }
 
     public int size(){
+        /**
+         * This method returns the current size of the array
+         * @return int - current size of the array
+         */
         return size;
     }
 
