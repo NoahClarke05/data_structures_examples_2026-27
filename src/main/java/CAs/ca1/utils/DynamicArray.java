@@ -37,7 +37,8 @@ public class DynamicArray {
     public String get(int index){
         /**
          * This method returns the data at the given index position
-         * @param int - index position you want the data of
+         * @param int index - index position you want the data of
+         * @throws IndexOutOfBoundsException - If index position is not in array
          * @return String - data at the given index position in the array
          */
         if(index < 0 || index >= size){
@@ -49,7 +50,7 @@ public class DynamicArray {
     public int indexOf(String target){
         /**
          * This method returns the index position of the given target data
-         * @param String - The target data you want the index position of
+         * @param String target - The target data you want the index position of
          * @return int - Index position of the target data in the array
          */
         for (int i = 0; i < size; i++) {
@@ -64,7 +65,8 @@ public class DynamicArray {
     public void add(String value){
         /**
          * This method adds the given value to the end of the list
-         * @param String - The value to be added
+         * @param String value - The value to be added
+         * @throws IllegalArgumentException - If value is null
          */
         if (value == null) {
             throw new IllegalArgumentException("Value cannot be null");
@@ -78,7 +80,8 @@ public class DynamicArray {
     private void validateIndex(int index){
         /**
          * This method validates an index position to ensure it is in the array
-         * @param int - The index position
+         * @param int index - The index position
+         * @throws IndexOutOfBoundsException - If index position is not in array
          */
         if(index < 0 | index >= size){
             throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
@@ -89,7 +92,8 @@ public class DynamicArray {
         /**
          * This method also validates an index position, but allows the index to be the same as the size
          * This allows for insertions into an empty list
-         * @param int - The index position
+         * @param int index - The index position
+         * @throws IndexOutOfBoundsException - If index position is not in array
          */
         if (index < 0 || index > size){
             throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
