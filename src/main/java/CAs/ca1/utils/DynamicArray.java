@@ -172,6 +172,9 @@ public class DynamicArray {
     }
 
     public void clear(){
+        /**
+         * This method clears all the current data from the array
+         */
         for (int i = 0; i < size; i++) {
             data[i] = null;
         }
