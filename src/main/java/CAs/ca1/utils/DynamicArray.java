@@ -47,6 +47,11 @@ public class DynamicArray {
     }
 
     public int indexOf(String target){
+        /**
+         * This method returns the index position of the given target data
+         * @param String - The target data you want the index position of
+         * @return int - Index position of the target data in the array
+         */
         for (int i = 0; i < size; i++) {
             if(data[i].equalsIgnoreCase(target)){
                 return i;
