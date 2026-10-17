@@ -155,6 +155,11 @@ public class DynamicArray {
     }
 
     public int removeAll(String value){
+        /**
+         * This method removes all instances of a value within the array
+         * @param String value - The value you want to fully remove from the array
+         * @return The number of instances that were removed
+         */
         int count = 0;
         for (int i = 0; i < size; i++) {
             if (data[i].equals(value)) {
