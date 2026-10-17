@@ -121,6 +121,13 @@ public class DynamicArray {
     }
 
     public String set(int index, String value){
+        /**
+         * This method replaces the information at a given index position with a new value
+         * @param int index - The index position fo the value you want to replace
+         * @param String value - The new value to replace the existing value
+         * @throws IllegalArgumentException - If the value is null
+         * @return The previous value at the specified index
+         */
         if (value == null) {
             throw new IllegalArgumentException("Value cannot be null");
         }
