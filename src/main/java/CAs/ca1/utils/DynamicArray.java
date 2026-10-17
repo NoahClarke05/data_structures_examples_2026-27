@@ -86,7 +86,11 @@ public class DynamicArray {
     }
 
     private void validateInsertIndex(int index){
-        //allows insertion into empty list
+        /**
+         * This method also validates an index position, but allows the index to be the same as the size
+         * This allows for insertions into an empty list
+         * @param int - The index position
+         */
         if (index < 0 || index > size){
             throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
         }
