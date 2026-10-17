@@ -182,6 +182,10 @@ public class DynamicArray {
     }
     
     public String[] deduplicate(){
+        /**
+         * This method removes all duplicate instances of a value from the array, leaving only 1 of each value
+         * @returns String[] - The deduplicated array
+         */
         int size = 0;
         String [] dedup = new String[10];
 
