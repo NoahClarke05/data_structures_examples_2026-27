@@ -1,11 +1,20 @@
 package CAs.ca1.utils;
 
 public class DynamicArray {
+    /**
+     * This class has 3 private variables which it sets up initially
+     * EXPANSION_MULTIPLIER the number the array will be expanded by
+     * size is the current size of the array
+     * data is the array itself, which starts at a max length of 10.
+     */
     private static final int EXPANSION_MULTIPLIER = 2;
     private int size = 0;
     private String [] data = new String[10];
 
     private void ensureCapacity(){
+        /**
+         * This method ensures that the array has enough capacity to hold the new element.
+         */
         if(size == data.length){
             String [] temp = new String[data.length*EXPANSION_MULTIPLIER];
 
