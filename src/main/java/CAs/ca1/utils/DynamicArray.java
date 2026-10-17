@@ -26,57 +26,6 @@ public class DynamicArray {
         }
     }
 
-    public int size(){
-        /**
-         * This method returns the current size of the array
-         * @return int - current size of the array
-         */
-        return size;
-    }
-
-    public String get(int index){
-        /**
-         * This method returns the data at the given index position
-         * @param int index - index position you want the data of
-         * @throws IndexOutOfBoundsException - If index position is not in array
-         * @return String - data at the given index position in the array
-         */
-        if(index < 0 || index >= size){
-            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of array");
-        }
-        return data[index];
-    }
-
-    public int indexOf(String target){
-        /**
-         * This method returns the index position of the given target data
-         * @param String target - The target data you want the index position of
-         * @return int - Index position of the target data in the array
-         */
-        for (int i = 0; i < size; i++) {
-            if(data[i].equalsIgnoreCase(target)){
-                return i;
-            }
-        }
-
-        return -1;
-    }
-
-    public void add(String value){
-        /**
-         * This method adds the given value to the end of the list
-         * @param String value - The value to be added
-         * @throws IllegalArgumentException - If value is null
-         */
-        if (value == null) {
-            throw new IllegalArgumentException("Value cannot be null");
-        }
-        ensureCapacity();
-
-        data[size] = value;
-        size++;
-    }
-
     private void validateIndex(int index){
         /**
          * This method validates an index position to ensure it is in the array
@@ -100,16 +49,70 @@ public class DynamicArray {
         }
     }
 
+    private void validateValue(String value){
+        /**
+         * This method validates the value being entered to ensure it is valid
+         * @param String value - The value the user is adding or removing from the array
+         * @throws IllegalArgumentException - If the value is null
+         */
+        if (value == null) {
+            throw new IllegalArgumentException("Value cannot be null");
+        }
+    }
+
+    public int size(){
+        /**
+         * This method returns the current size of the array
+         * @return int - current size of the array
+         */
+        return size;
+    }
+
+    public String get(int index){
+        /**
+         * This method returns the data at the given index position
+         * @param int index - index position you want the data of
+         * @return String - data at the given index position in the array
+         */
+        validateIndex(index);
+        return data[index];
+    }
+
+    public int indexOf(String target){
+        /**
+         * This method returns the index position of the given target data
+         * @param String target - The target data you want the index position of
+         * @return int - Index position of the target data in the array
+         */
+        for (int i = 0; i < size; i++) {
+            if(data[i].equalsIgnoreCase(target)){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public void add(String value){
+        /**
+         * This method adds the given value to the end of the list
+         * @param String value - The value to be added
+         */
+        validateValue(value);
+        ensureCapacity();
+
+        data[size] = value;
+        size++;
+    }
+
+
     public void add(int index, String value){
         /**
          * This method adds the given value into a specific index position
          * @param int index - The index position you want to insert the value at
          * @param String Value - The value you want to add
-         * @throws IllegalArgumentException - If value is null
          */
-        if (value == null) {
-            throw new IllegalArgumentException("Value cannot be null");
-        }
+        validateValue(value);
         validateInsertIndex(index);
 
         ensureCapacity();
@@ -125,12 +128,9 @@ public class DynamicArray {
          * This method replaces the information at a given index position with a new value
          * @param int index - The index position fo the value you want to replace
          * @param String value - The new value to replace the existing value
-         * @throws IllegalArgumentException - If the value is null
          * @return The previous value at the specified index
          */
-        if (value == null) {
-            throw new IllegalArgumentException("Value cannot be null");
-        }
+        validateValue(value);
         validateIndex(index);
 
         String prev_value = data[index];
