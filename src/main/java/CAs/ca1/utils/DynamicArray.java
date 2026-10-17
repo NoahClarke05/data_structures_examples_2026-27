@@ -141,6 +141,12 @@ public class DynamicArray {
     }
 
     public String remove(int index){
+        /**
+         * This method removes the value at the specified index and returns it
+         * @param int index - The index of the value to remove
+         * @throws IndexOutOfBoundsException - If the index is out of bounds
+         * @return The value that was removed
+         */
         validateIndex(index);
         String removedValue = data[index];
         System.arraycopy(data, index+1, data, index, (size-index-1));
