@@ -35,6 +35,11 @@ public class DynamicArray {
     }
 
     public String get(int index){
+        /**
+         * This method returns the data at the given index position
+         * @param int - index position you want the data of
+         * @return String - data at the given index position in the array
+         */
         if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of array");
         }
