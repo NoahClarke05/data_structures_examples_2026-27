@@ -54,9 +54,12 @@ public class LinkedList {
         }
         Node newNode = new Node(element);
         if(index==0){
-            if (first != null){
+            if (!isEmpty()){
                 newNode.next = first;
+            }else{
+                last = newNode;
             }
+
             first = newNode;
         }else {
 
@@ -74,19 +77,25 @@ public class LinkedList {
         size++;
     }
 
-    public void remove(String element, int index) {
+    public void remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + "is out of bounds");
         }
         Node prev = null;
         Node current = first;
 
-        for (int i = 0; i < index; i++) {
-            prev = current;
-            current = current.next;
-        }
+        if(index == 0){
+            first = current.next;
 
-        prev.next = current.next;
+        }else{
+            for (int i = 0; i < index; i++) {
+                String removed = current.data;
+                prev = current;
+                current = current.next;
+            }
+
+            prev.next = current.next;
+        }
         size--;
     }
 }
