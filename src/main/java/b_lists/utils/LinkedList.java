@@ -77,6 +77,25 @@ public class LinkedList {
         size++;
     }
 
+    public int indexOf(String target){
+        validateForNull(target);
+
+        Node current = first;
+        for (int i = 0; i < size; i++) {
+            if (current.data.equals(target)) {
+                return i;
+            }
+            current = current.next;
+        }
+        return -1;
+    }
+
+    public static void validateForNull(String target){
+        if (target == null) {
+            throw new IllegalArgumentException("Target cannot be null");
+        }
+    }
+
     public void remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + "is out of bounds");
@@ -97,5 +116,16 @@ public class LinkedList {
             prev.next = current.next;
         }
         size--;
+    }
+
+    public boolean remove(String target) {
+        validateForNull(target);
+        int index = indexOf(target);
+        if (index == -1) {
+            return false;
+        }
+
+        remove(index);
+        return true;
     }
 }
