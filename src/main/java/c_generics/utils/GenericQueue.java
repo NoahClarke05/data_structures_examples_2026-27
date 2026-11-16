@@ -64,7 +64,7 @@ public class GenericQueue<T> {
         return removed;
     }
 
-    private void validateForNull(T target) {
+    protected void validateForNull(T target) {
         if(target == null){
             throw new IllegalArgumentException("Nulls are not permitted in the Queue");
         }
