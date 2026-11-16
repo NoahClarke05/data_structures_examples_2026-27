@@ -1,0 +1,110 @@
+package c_generics.utils;
+
+public class GenericDynamicArray<T> {
+    private static final int EXPANSION_MULTIPLIER = 2;
+    private int size = 0;
+    private Object[] data = new Object[10];
+
+    private void ensureCapacity(){
+        if(size == data.length){
+            Object[] temp = new Object[data.length*EXPANSION_MULTIPLIER];
+
+            for (int i = 0; i < data.length; i++) {
+                temp[i] = data[i];
+            }
+
+            data = temp;
+        }
+    }
+
+    public void add(T value){
+        ensureCapacity();
+
+        data[size] = value;
+        size++;
+    }
+
+    @SuppressWarnings("unchecked")
+    public T get(int index){
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of array");
+        }
+        return (T) data[index];
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public int indexOf(T target){
+        for (int i = 0; i < size; i++) {
+            if(data[i] == target){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    @SuppressWarnings("unchecked")
+    public T remove(int index){
+        validateIndex(index);
+
+        T removed = (T) data[index];
+
+        for (int i = index; i < size-1; i++) {
+            data[i] = data[i+1];
+        }
+
+        data[size-1] = 0;
+        size--;
+
+        return (T) removed;
+    }
+
+    private void validateIndex(int index){
+        if(index < 0 | index >= size){
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
+        }
+    }
+
+    public void add(int index, T value){
+        validateIndex(index);
+
+        ensureCapacity();
+
+//        for (int i = size; i > index; i--) {
+//            data[i] = data[i-1];
+//        }
+
+        System.arraycopy(data, index, data, index+1, (size-index));
+
+        data[index] = value;
+        size++;
+    }
+
+    @SuppressWarnings({"unchecked"})
+    public GenericDynamicArray<T> subset(int startindex, int endindex) {
+        validateIndex(startindex);
+        validateIndex(endindex - 1);
+
+        if (startindex >= endindex) {
+            throw new IllegalArgumentException("Start index must be less than end index");
+        }
+
+        GenericDynamicArray<T> result = new GenericDynamicArray<>();
+        for (int i = startindex; i < endindex; i++) {
+            result.add((T) data[i]);
+        }
+        return result;
+    }
+
+    public int lastIndexOf(T target) {
+        for (int i = data.length - 1; i >= 0; i--) {
+            if(data[i] == target){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
