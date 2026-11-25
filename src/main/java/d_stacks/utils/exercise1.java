@@ -20,5 +20,6 @@ public class exercise1 {
                 count1++;
             }
         }
+        return null;
     }
 }

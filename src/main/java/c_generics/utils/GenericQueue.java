@@ -1,16 +1,16 @@
-package b_lists.utils;
+package c_generics.utils;
 
 import java.util.NoSuchElementException;
 
 public class GenericQueue<T> {
-    private Node<T> first;
-    private Node<T> last;
-    private int size;
+    protected Node<T> first;
+    protected Node<T> last;
+    protected int size;
 
 
-    private static class Node<T>{
-        private T data;
-        private Node<T> next;
+    protected static class Node<T>{
+        protected T data;
+        protected Node<T> next;
 
         public Node(T data){
             this.data = data;
@@ -64,7 +64,7 @@ public class GenericQueue<T> {
         return removed;
     }
 
-    private void validateForNull(T target) {
+    protected void validateForNull(T target) {
         if(target == null){
             throw new IllegalArgumentException("Nulls are not permitted in the Queue");
         }
