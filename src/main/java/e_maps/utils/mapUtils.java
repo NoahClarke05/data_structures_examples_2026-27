@@ -33,7 +33,7 @@ public class mapUtils<K, V> {
         Entry<K, V> original = (Entry<K, V>) map[slot];
 
         if (!key.equals(original.key)) {
-            throw new IllegalStateException("Key collision occured");
+            throw new IllegalStateException("Key collision occurred");
         }
 
         V oldValue = original.value;
@@ -54,8 +54,35 @@ public class mapUtils<K, V> {
         return entry.value;
     }
 
+    public V remove(K key) {
+        int slot = hashFunction(key);
+        V removed = get(key);
+
+        map[slot] = null;
+
+        return removed;
+    }
+
     public int count(){
         return count;
+    }
+
+    @SuppressWarnings("unchecked")
+    public K[] getKeys(){
+        Object [] keys = new Object[count];
+        int keyCount = 0;
+
+        int slotIndex = 0;
+        while(keyCount != count && slotIndex < map.length){
+            if(map[slotIndex] != null){
+                Entry<K, V> currentEntry = (Entry<K, V>) map[slotIndex];
+                K currentKey = currentEntry.key;
+                keys[keyCount] = currentKey;
+                keyCount++;
+            }
+            slotIndex++;
+        }
+        return (K[]) keys;
     }
 
     private int hashFunction (K key){
@@ -63,6 +90,7 @@ public class mapUtils<K, V> {
 
         int hash = key.hashCode();
         hash = Math.abs(hash);
+        hash = hash % map.length;
 
         return hash;
     }
