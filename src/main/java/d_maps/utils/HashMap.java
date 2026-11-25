@@ -61,6 +61,7 @@ public class HashMap<K, V> {
 
         int hash = key.hashCode();
         hash = Math.abs(hash);
+        hash = hash % map.length;
 
         return hash;
     }
