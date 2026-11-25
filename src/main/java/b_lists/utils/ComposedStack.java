@@ -1,7 +1,6 @@
 package b_lists.utils;
 
 import java.util.EmptyStackException;
-import java.util.NoSuchElementException;
 
 public class ComposedStack {
     private LinkedList list = new LinkedList();
